@@ -1,8 +1,31 @@
 <div class="card" style="margin-top: 10px;">
     <div class="card-body">
-        <img src="../../../assets/images/Cracking-the-code.jpg" class="img-fluid rounded-top" alt="rear banner">
-        <img src="../../../assets/images/perfil.jfif" alt=" img-fluid foto_perfil" class="foto_perfil">
-        <h1 style="margin-left: 3%;">Lucian H. Reale</h1> 
-        <h3 style="margin-left: 3%;">Desarrollador Full-Stack</h3>
-        <h3 style="margin-left: 3%;">Buenos Aires - Argentina</h3>
+        <img [src]="miPortfolio.bannerImg" class="img-fluid rounded-top row" alt="rear banner">   
+        <img [src]="miPortfolio.profImg" class="fotoPerfil" alt="foto de perfil">
+        <div class="row">
+            <div class="col">
+                <h1 style="margin-left: 3%;">{{miPortfolio.name}}</h1> 
+                <h3 style="margin-left: 3%;">{{miPortfolio.position}} en {{miPortfolio.company.name}}</h3>
+                <h3 style="margin-left: 3%;">{{miPortfolio.ubication}}</h3>
+            </div>
+            <div class="col">
+                <div class="d-flex align-items-center">
+                    <img [src]="miPortfolio.company.img" alt="img-fluid" class="fotoCompany">
+                    <h5>{{miPortfolio.company.name}}</h5> 
+
+                 
+                </div>
+                <div class="d-flex align-items-center">
+                    <img [src]="miPortfolio.school.img" alt="img-fluid" class="fotoSchool">
+                    <h5 style="margin-left: 3%;">{{miPortfolio.school.name}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+<div class="card" style="margin-top: 10px;">
+    <div class="card-body">
+        <h1 style="margin-left: 3%;">Acerca de mi</h1> 
+        <p style="margin-left: 3%;">{{miPortfolio.about}}</p> 
+    </div>  
 </div>

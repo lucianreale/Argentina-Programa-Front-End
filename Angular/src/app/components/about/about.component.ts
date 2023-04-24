@@ -1,17 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from "../../services/portfolio.service"
+import { lastValueFrom, interval, take } from 'rxjs';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent {
-  constructor (private datosPortfolio:PortfolioService){
-
+export class AboutComponent implements OnInit {
+  miPortfolio:any;
+  //prueba de carga sincronica
+  public async loadData() {
+    const source$ = this.datosPortfolio.getData();
+    this.miPortfolio = await lastValueFrom(source$);
   }
 
-  ngOnInit(){
-    this.datosPortfolio.obtenerDatos()
+  constructor (private datosPortfolio:PortfolioService){
+    //this.loadData()
+  }
+
+  ngOnInit(): void{
+    this.datosPortfolio.getData().subscribe(data=>{
+      this.miPortfolio=data
+    })
   }
 }

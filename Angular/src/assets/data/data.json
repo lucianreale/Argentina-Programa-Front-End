@@ -1,0 +1,82 @@
+{
+    "name": "Lucian H. Reale",
+    "bannerImg": "https://www.conceptseating.com/wp-content/uploads/2021/01/Market-Programming-Banner.jpg",
+    "profImg": "https://media.licdn.com/dms/image/C4D03AQFmNSLTI6f82A/profile-displayphoto-shrink_800_800/0/1630701598297?e=2147483647&v=beta&t=_xtV-CDo8gj6f4aPw3HVf3yK3E5K5PZ8iSqs-Ke4i74",
+    "position": "Informatico",
+    "company":{
+        "name": "OSPSIP",
+        "img": "http://www.laguiadequilmes.com/uploads/imagenes/clasificados/608/principal/200xAuto/140227051813636879.jpg",
+        "url": "https://www.ospsip.org.ar"
+    },
+    "school":{
+        "name": "Siglo XXI",
+        "img": "https://www.ddvs.edu.ar/images/sitio/institucion/cau-arroyito/logo.png",
+        "url": "https://21.edu.ar/"
+    },
+    "ubication": "Buenos Aires - Argentina",
+    "about": "Conocimientos en la administración de servidores Linux (visualización, script bash y batch, raid). Configuración de Filesystem y dispositivos, administración de dispositivos de almacenamiento (Raid y NAS), configuración de redes (networking). Gestión de cuentas de usuarios y configuración de DHCP, PAM y LDAP, definición de esquemas de respaldo, monitoreo y visualización de carga de procesos, aplicación de actualizaciones del S.O. monitoreo y configuración de firewall, análisis y chequeo de procesos automáticos (crontab y tareas programadas), configuración de tareas de seguridad (iptables), monitoreo y configuración de accesos remotos (ssh, ftp) instalación y configuración servicios web (LAMP), configuración de DNS, instalación y configuración de SAMBA y NFS, Conocimientos de base de datos (Mysql, Postgresql y SQL Server) Conocimiento y manejo de redes (switch, routing, proxy, vpn, ssh, dns, nat). En el ambiente de desarrollo, certificaciones de Full Stack Jr. Habilidades para el trabajo en equipo y respuesta inmediata bajo escenarios de presión respetando esquemas de trabajo.",
+    "experience": [{
+        "position": "administrador de Servidores",
+        "company": "OSPSIP",
+        "img": "http://www.laguiadequilmes.com/uploads/imagenes/clasificados/608/principal/200xAuto/140227051813636879.jpg",
+        "description": "Jornada Completa, Administracion de Servidores",
+        "start": "2006",
+        "end": "actualidad"
+    }],
+    "education":[
+        {
+            "school": "Hogar Naval Stella Maris",
+            "title": "Tecnico en Computacion",
+            "img": "https://8982375b4e.cbaul-cdnwnd.com/ca2ba11af957900e305b79430a1015e0/200000075-7807879fc7/escudo%20naval.JPG",
+            "career": "Licenciatura en Administracion de Empresas",
+            "score": 74,
+            "start": "1999",
+            "end": "2005"
+        },
+        {
+            "school": "CAECE",
+            "title": "Ingenieria / Licenciatura en Sistemas",
+            "img": "https://nyc3.digitaloceanspaces.com/orienten-prod/media/uploads/institutions/logos/thumbnails/329-universidad-caece-logo_73Fy5km.png",
+            "career": "Licenciatura en Administracion de Empresas",
+            "score": 66,
+            "start": "2007",
+            "end": "2014"
+        },
+        {
+            "school": "Universidad Siglo XXI",
+            "title": "Licenciatura en Administracion de Empresas",
+            "img": "https://www.facebook.com/lasiglo21/photos/a.465619890160709/3667061526683180/?__tn__=%3C",
+            "career": "Licenciatura en Administracion de Empresas",
+            "score": 66,
+            "start": "2016",
+            "end": "2018"
+        }
+        
+    ],
+    "proyects":[{
+        "name": "Armado de Datacenter OSPSIP",
+        "start": "2007",
+        "end": "2008",
+        "url": "#"
+       },
+       {
+        "name": "Alojar Sitio Web OSPSIP",
+        "start": "2008",
+        "end": "2008",
+        "url": "#"
+       }
+    ],
+    "skills":[{
+        "name":"Desarrollo Front-End",
+        "skill": 10
+    },
+    {        
+        "name":"Desarrollo Back-End",
+        "skill": 75
+    },
+    {        
+        "name":"MySQL",
+        "skill": 35
+    }
+    ]
+}
