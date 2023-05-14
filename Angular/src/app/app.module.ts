@@ -11,8 +11,11 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { EducationComponent } from './components/education/education.component';
 import { SkillComponent } from './components/skill/skill.component';
 import { ProjectsComponent } from './components/projects/projects.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     ProjectsComponent,
     FooterComponent,
     LoginFormComponent,
+    PortfolioComponent,
   ],
   imports: [
     BrowserModule,

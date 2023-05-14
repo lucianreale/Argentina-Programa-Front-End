@@ -15,14 +15,23 @@
     },
     "ubication": "Buenos Aires - Argentina",
     "about": "Conocimientos en la administración de servidores Linux (visualización, script bash y batch, raid). Configuración de Filesystem y dispositivos, administración de dispositivos de almacenamiento (Raid y NAS), configuración de redes (networking). Gestión de cuentas de usuarios y configuración de DHCP, PAM y LDAP, definición de esquemas de respaldo, monitoreo y visualización de carga de procesos, aplicación de actualizaciones del S.O. monitoreo y configuración de firewall, análisis y chequeo de procesos automáticos (crontab y tareas programadas), configuración de tareas de seguridad (iptables), monitoreo y configuración de accesos remotos (ssh, ftp) instalación y configuración servicios web (LAMP), configuración de DNS, instalación y configuración de SAMBA y NFS, Conocimientos de base de datos (Mysql, Postgresql y SQL Server) Conocimiento y manejo de redes (switch, routing, proxy, vpn, ssh, dns, nat). En el ambiente de desarrollo, certificaciones de Full Stack Jr. Habilidades para el trabajo en equipo y respuesta inmediata bajo escenarios de presión respetando esquemas de trabajo.",
-    "experience": [{
-        "position": "administrador de Servidores",
+    "experience": [
+        {
+        "position": "Administrador de Servidores",
         "company": "OSPSIP",
         "img": "http://www.laguiadequilmes.com/uploads/imagenes/clasificados/608/principal/200xAuto/140227051813636879.jpg",
-        "description": "Jornada Completa, Administracion de Servidores",
+        "description": "Jornada Completa, Administracion de Servidores e Infraestructura",
         "start": "2006",
-        "end": "actualidad"
-    }],
+        "end": "actualidad"},
+        {
+        "position": "Tecnico",
+        "company": "Edyx",
+        "img": "",
+        "description": "Jornada Completa, Tecnico en Reparacion de PC",
+        "start": "2004",
+        "end": "2006"
+        }
+    ],
     "education":[
         {
             "school": "Hogar Naval Stella Maris",
@@ -54,29 +63,31 @@
         
     ],
     "proyects":[{
-        "name": "Armado de Datacenter OSPSIP",
-        "start": "2007",
-        "end": "2008",
+        "company": "Argentina Programa",
+        "name": "FrontEnd",
+        "start": "2022",
+        "end": "2023",
         "url": "#"
        },
        {
-        "name": "Alojar Sitio Web OSPSIP",
-        "start": "2008",
-        "end": "2008",
-        "url": "#"
+        "company": "Argentina Programa",
+        "name": "BackEnd",
+        "start": "2023",
+        "end": "2023",
+        "url": "https://argentina-programa-back-nwlu.onrender.com"
        }
     ],
     "skills":[{
         "name":"Desarrollo Front-End",
-        "skill": 10
+        "skill": "45%"
     },
     {        
         "name":"Desarrollo Back-End",
-        "skill": 75
+        "skill": "75%"
     },
     {        
         "name":"MySQL",
-        "skill": 35
+        "skill": "35%"
     }
     ]
 }

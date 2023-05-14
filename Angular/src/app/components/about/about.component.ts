@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from "../../services/portfolio.service"
-import { lastValueFrom, interval, take } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-about',

@@ -1,17 +1,12 @@
 <div class="card" style="margin-top: 10px;">
     <h1 style="margin-left: 3%;">Educacion</h1>
-    <div class="card-body">
-        <h4 style="margin-left: 3%;"><strong>Hogar Naval Stella Maris</strong> - Tecnico en Computacion</h4>
-        <p style="margin-left: 3%;">1999 - 2005</p>
-    </div>
-    <div class="card-body">
-        <h4 style="margin-left: 3%;"><strong>Siglo XXI</strong> - Administracion de Empresas</h4>
-        <p style="margin-left: 3%;">2018 - 2020</p>
-
         <ul>
             <li *ngFor="let education of educationList" style="list-style-type:none;">
-                <p>{{education.school}}</p>
+                <div class="card-body">
+                    <!--<img [src]="education.img" alt="Logo School">-->
+                    <h4 style="margin-left: 3%;"><strong>{{education.school}}</strong> - {{education.title}}</h4>
+                    <p style="margin-left: 3%;">{{education.start}} - {{education.end}}</p>
+                </div>
             </li>
         </ul>
-    </div>
 </div>

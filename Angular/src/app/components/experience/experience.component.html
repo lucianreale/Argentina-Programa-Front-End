@@ -1,10 +1,13 @@
 <div class="card" style="margin-top: 10px;">
     <h1 style="margin-left: 3%;">Experiencia</h1>
-    <div class="card-body">
-        <h4 style="margin-left: 3%;"><strong>Edyx</strong> - Servicios Digitales</h4>
-        <p style="margin-left: 3%;">Tecnico de Soporte a usuario Final</p>
-    </div>
-    <div class="card-body">
-
-    </div>
+        <ul>
+            <li *ngFor="let experience of experienceList" style="list-style-type:none;">
+                <div class="card-body">
+                    <!--<img [src]="education.img" alt="Logo School">-->
+                    <h4 style="margin-left: 3%;"><strong>{{experience.company}}</strong> - {{experience.position}}</h4>
+                    <p style="margin-left: 3%;">{{experience.description}}</p>
+                    <p style="margin-left: 3%;">{{experience.start}} - {{experience.end}}</p>
+                </div>
+            </li>
+        </ul>
 </div>
