@@ -1,5 +1,10 @@
-<nav class="navbar navbar-light bg-light justify-content-between">
-    <!--agregar redes sociales y boton login-->
-    <a class="navbar-brand"></a>
-    <button class="btn btn-primary my-2 my-sm-0" type="submit" style="margin-right: 1%">LogIn</button>
-</nav>
+<div class="row">
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand col">Hola</a>
+        <button class="btn btn-primary my-2 my-sm-0" type="submit" style="margin-right: 1%" (click)="toggleLogin()">{{showLogin ? 'Cerrar':'Ingresar'}}</button>
+    </nav>
+</div>
+
+<div class="row">
+    <app-login-form></app-login-form>
+</div>
