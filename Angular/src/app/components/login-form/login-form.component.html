@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="col-md-12 text-center">
-      <button type="submit" (click)="login()" class="btn btn-dark btn-block my-5" [disabled]="logInBtnDisabled">LogIn</button>
+      <button type="submit" (click)="login()" class="btn btn-dark btn-block my-5" [disabled]="logInBtnDisabled">{{logInBtnText}}</button>
     </div>
   </form>
   <h6><p class="text-danger text-center">{{loginError}}</p></h6>
