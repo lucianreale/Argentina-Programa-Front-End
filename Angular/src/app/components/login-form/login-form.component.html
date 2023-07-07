@@ -1,15 +1,29 @@
-<form (ngSubmit)="onSubmit()"
-        *ngIf="showLogin"
->
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email</label>
-      <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" [(ngModel)]=mail>
+<div class="card mt-3 w-50 m-auto pt-2 bg-light" style="margin-top: 10px;">
+  <form [formGroup]="loginForm">
+    <div class="my-5 px-5">
+      <h4><label for="InputEmail1" class="form-label">Email</label></h4>
+      <input formControlName="mail" type="email" class="form-control" id="mail" name="mail" aria-describedby="email">
+      <div *ngIf="mail.invalid && (mail.dirty || mail.touched)" class="text-danger">
+        <div *ngIf="mail.errors?.['required']">
+          Ingrese Correo.
+        </div>
+        <div *ngIf="mail.errors?.['email']">
+          Ingrese un Correo valido.
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="pass" name="pass" [(ngModel)]="pass">
+    <div class="my-2 px-5">
+      <h4><label for="InputPassword1" class="form-label">Password</label></h4>
+      <input formControlName="pass" type="password" class="form-control" id="pass" name="pass">
+      <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="text-danger">
+        <div *ngIf="pass.errors?.['required']">
+          Ingrese Contraseña.
+        </div>
+      </div>
     </div>
-    <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-dark btn-block">LogIn</button>
+    <div class="col-md-12 text-center">
+      <button type="submit" (click)="login()" class="btn btn-dark btn-block my-5" [disabled]="logInBtnDisabled">LogIn</button>
     </div>
-</form>
+  </form>
+  <h6><p class="text-danger text-center">{{loginError}}</p></h6>
+</div>

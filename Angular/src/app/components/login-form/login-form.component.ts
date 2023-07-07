@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PortfolioService } from 'src/app/services/portfolio.service';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginReq } from 'src/app/interface/LoginReq';
+import { User } from '../../interface/User'
 
 @Component({
   selector: 'app-login-form',
@@ -8,32 +12,63 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  mail: string = "";
-  pass: string = "";
-  showLogin: Boolean = false;
-  subscription?: Subscription;
+  loginError:String=""
+  //showLogin: Boolean = false
+  //subscription?: Subscription
+  logInBtnDisabled:Boolean=false
+  user?:User
+  loginForm= this.formbuilder.group({
+    mail:['lucianreale@gmail.com',[Validators.required, Validators.email]],
+    pass:['',Validators.required]
+  })
 
-  constructor(private portfolioService: PortfolioService) {
+
+   /*constructor(private portfolioService: PortfolioService) {
     this.subscription = this.portfolioService.onToggle()
                             .subscribe (value => this.showLogin = value)
-   }
-  ngOnInit(): void {
-    
+   }*/
+  
+  constructor(private formbuilder: FormBuilder, private router:Router, private portfolioService: PortfolioService) {
+
   }
 
-  onSubmit(){
-    console.log("submin")
-    if (this.mail.length === 0) {
-      alert("Completar Correo")
-      return
-    }
-    if (this.pass.length === 0) {
-      alert("Completar Contraseña")
-      return
-    }
-    const {mail,pass} = this
-    const newLogin = { mail, pass }
-   
+  login(){
+    this.loginForm.markAllAsTouched()
+    if (this.loginForm.valid){
+      this.logInBtnDisabled=!this.logInBtnDisabled
+      this.portfolioService.login(this.loginForm.value as LoginReq).subscribe({
+        next: (userData) => {
+          this.user=userData
+          console.log(this.user)
+        },
+        error: (errorData) =>{
+          console.log(errorData)
+          this.loginError=errorData
+        },
+        complete: () =>{
+          this.logInBtnDisabled=!this.logInBtnDisabled
+          if (this.user===null){
+            console.log('usu o pass error')
+            this.loginError="Usuario y/o Contraseña Incorrecto"
+          } else {
+            this.router.navigateByUrl('/dash')
+            this.loginForm.reset()
+          }
+        } 
+      })
+    } 
+  } 
 
+  get mail(){
+    return this.loginForm.controls.mail
+  }
+
+  get pass(){
+    return this.loginForm.controls.pass
+  }
+
+
+  ngOnInit(): void {
+    
   }
 }
