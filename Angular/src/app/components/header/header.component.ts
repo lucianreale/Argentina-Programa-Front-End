@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PortfolioService } from 'src/app/services/portfolio.service';
+import { LoginFormComponent } from '../login-form/login-form.component';
+import { User } from 'src/app/interface/User';
 
 @Component({
   selector: 'app-header',
@@ -8,22 +10,16 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  
-  nombre: String="Lucianni"
-  //showLogin: Boolean= false;
-  //subscription?: Subscription;
-  /*
-  constructor(private portfolioService: PortfolioService) {
-    this.subscription = this.portfolioService.onToggle()
-                            .subscribe (value => this.showLogin = value)
-   }*/
-  ngOnInit(): void {
-    
+  //private user: User[]=[]
+  user?:User
+  //private user: User[] = []
+
+  constructor (private portfolioService: PortfolioService){}
+
+  ngOnInit() {
+    /*this.loginFormComponent.user.subscribe(user=>{
+      console.log(user)
+    })*/
+    this.user = this.portfolioService.user
   }
-/*
-  toggleLogin(){
-    console.log(this.showLogin)
-    this.portfolioService.toggleLogin()
-  }
-*/  
 }
