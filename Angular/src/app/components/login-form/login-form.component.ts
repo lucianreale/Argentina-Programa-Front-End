@@ -15,9 +15,7 @@ export class LoginFormComponent implements OnInit {
   loginError:String=""
   logInBtnDisabled:Boolean=false
   logInBtnText:String="Login"
-  user?:User
-  //userArray:User[]=[]
-  //_user: BehaviorSubject<User[]>
+  user:User[]=[]
   loginForm= this.formbuilder.group({
     mail:['lucianreale@gmail.com',[Validators.required, Validators.email]],
     pass:['lucianreale',Validators.required]
@@ -25,14 +23,9 @@ export class LoginFormComponent implements OnInit {
 
  
   constructor(private formbuilder: FormBuilder, private router:Router, private portfolioService: PortfolioService) {
-    //this._user = new BehaviorSubject<User[]>([])
   }
   
-  /*
-  get user(){
-    return this._user.asObservable()
-  }
-  */
+
   
   login(){
     this.loginForm.markAllAsTouched()
@@ -41,9 +34,7 @@ export class LoginFormComponent implements OnInit {
       this.logInBtnText="Cargando..."
       this.portfolioService.login(this.loginForm.value as LoginReq).subscribe({
         next: (userData) => {
-          //this.userArray[0]=userData
-          //this._user.next(this.userArray)
-          this.user=userData
+          this.user[0]=userData
         },
         error: (errorData) =>{
           this.logInBtnDisabled=!this.logInBtnDisabled
@@ -59,7 +50,9 @@ export class LoginFormComponent implements OnInit {
           if (this.user===null){
             this.loginError="Usuario y/o Contraseña Incorrecto"
           } else {
-            this.portfolioService.updateUser(this.user)
+            console.log('lfcomp')
+            console.log(this.user)
+            this.portfolioService.setUser(this.user)
             this.router.navigateByUrl('/dashboard')
             this.loginForm.reset()
           }

@@ -10,8 +10,9 @@ import { User } from 'src/app/interface/User';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  //private user: User[]=[]
-  user?:User
+  user: User[]=[]
+  //empresas : Empresa[]
+  //user?:User
   //private user: User[] = []
 
   constructor (private portfolioService: PortfolioService){}
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
     /*this.loginFormComponent.user.subscribe(user=>{
       console.log(user)
     })*/
-    this.user = this.portfolioService.user
+    //this.user = this.portfolioService.user
+    this.portfolioService.getUser().subscribe(user => this.user = user)
   }
 }

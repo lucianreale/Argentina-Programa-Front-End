@@ -9,33 +9,40 @@ import { User } from '../interface/User';
 })
 export class PortfolioService {
   private baseUrl:String = "https://argentina-programa-back-2-0.onrender.com"
-  private readonly isLoggedIn = new BehaviorSubject<Boolean>(false) 
+  private isLoggedIn$ = new BehaviorSubject<Boolean>(false) 
   user?:User
-  _user:any={}
+  private user$ = new BehaviorSubject<User[]>([]);
+
   constructor(private http:HttpClient) {
-    this._user = new BehaviorSubject<{}>({})
   }
   
-  isAuthenticated$():Observable <Boolean>{
-    return this.isLoggedIn
-  }
-
   login(credentials:LoginReq):Observable<User>{
     return this.http.post<User>(this.baseUrl+'/login', credentials).pipe(
       catchError(this.handleError)
     )
   }
 
-  updateUser(user?:User){
-    //this.userArray[0]=user
-    //this._user.next(this.userArray)
-    
-    this.user=user
+  setUser(user: User[]) {
+    this.user$.next(user);
+  }
+
+  getEducation(id:BigInt):Observable<[]>{
+    return this.http.get<[]>(this.baseUrl+`/education/getbyuserid/${id}`).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  getUser() {
+    return this.user$.asObservable();
+  }
+
+  isAuthenticated$(){
+    return this.isLoggedIn$.asObservable()
   }
 
   updateLoginStatus(newState:Boolean){
-    this.isLoggedIn.next(newState);
-    console.log(this.isLoggedIn)
+    this.isLoggedIn$.next(newState);
+    console.log(this.isLoggedIn$)
   }
 
   private handleError(error:HttpErrorResponse){

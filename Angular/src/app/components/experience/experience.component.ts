@@ -12,9 +12,11 @@ export class ExperienceComponent {
 
   }
 
-  ngOnInit(): void{
+  ngOnInit(){
     this.datosPortfolio.getData().subscribe(data=>{
       this.experienceList=data.experience
+      console.log('experience')
+      console.log(this.experienceList)
     })
   }
 }

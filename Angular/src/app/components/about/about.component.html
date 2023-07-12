@@ -5,19 +5,19 @@
         <div class="row">
             <div class="col">
                 <h1 style="margin-left: 3%;">{{miPortfolio.name}}</h1> 
-                <h3 style="margin-left: 3%;">{{miPortfolio.position}} en {{miPortfolio.company.name}}</h3>
-                <h3 style="margin-left: 3%;">{{miPortfolio.ubication}}</h3>
+                <h3 style="margin-left: 3%;">{{miPortfolio.position}} en {{miPortfolio.actual_company}}</h3>
+                <h3 style="margin-left: 3%;">{{miPortfolio.localization}}</h3>
             </div>
             <div class="col">
                 <div class="d-flex align-items-center">
-                    <img [src]="miPortfolio.company.img" alt="img-fluid" class="fotoCompany">
-                    <h5>{{miPortfolio.company.name}}</h5> 
+                    <img [src]="miPortfolio.actual_company_img" alt="img-fluid" class="fotoCompany">
+                    <h5>{{miPortfolio.actual_company}}</h5> 
 
                  
                 </div>
                 <div class="d-flex align-items-center">
-                    <img [src]="miPortfolio.school.img" alt="img-fluid" class="fotoSchool">
-                    <h5 style="margin-left: 3%;">{{miPortfolio.school.name}}</h5>
+                    <img [src]="education[0].img" alt="img-fluid" class="fotoSchool">
+                    <h5 style="margin-left: 3%;">{{education[0].school}}</h5>
                 </div>
             </div>
         </div>
