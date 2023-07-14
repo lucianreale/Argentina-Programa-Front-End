@@ -10,26 +10,15 @@ import { User } from '../interface/User';
 export class PortfolioService {
   private baseUrl:String = "https://argentina-programa-back-2-0.onrender.com"
   private isLoggedIn$ = new BehaviorSubject<Boolean>(false) 
+  private pass:string=""
   user?:User
-  private user$ = new BehaviorSubject<User[]>([]);
+  private user$ = new BehaviorSubject<User[]>([])
 
   constructor(private http:HttpClient) {
   }
   
-  login(credentials:LoginReq):Observable<User>{
-    return this.http.post<User>(this.baseUrl+'/login', credentials).pipe(
-      catchError(this.handleError)
-    )
-  }
-
   setUser(user: User[]) {
     this.user$.next(user);
-  }
-
-  getEducation(id:BigInt):Observable<[]>{
-    return this.http.get<[]>(this.baseUrl+`/education/getbyuserid/${id}`).pipe(
-      catchError(this.handleError)
-    )
   }
 
   getUser() {
@@ -43,6 +32,26 @@ export class PortfolioService {
   updateLoginStatus(newState:Boolean){
     this.isLoggedIn$.next(newState);
     console.log(this.isLoggedIn$)
+  }
+  
+  login(credentials:LoginReq):Observable<User>{
+    this.pass=credentials.pass
+    return this.http.post<User>(this.baseUrl+'/login', credentials).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  saveAbout(data:User):Observable<any>{
+    data.pass=this.pass
+    return this.http.put<User>(this.baseUrl+'/user/update', data).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  getEducation(id:BigInt):Observable<[]>{
+    return this.http.get<[]>(this.baseUrl+`/education/getbyuserid/${id}`).pipe(
+      catchError(this.handleError)
+    )
   }
 
   private handleError(error:HttpErrorResponse){

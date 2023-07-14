@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+//import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -21,12 +21,9 @@ export class LoginFormComponent implements OnInit {
     pass:['lucianreale',Validators.required]
   })
 
- 
   constructor(private formbuilder: FormBuilder, private router:Router, private portfolioService: PortfolioService) {
   }
-  
 
-  
   login(){
     this.loginForm.markAllAsTouched()
     if (this.loginForm.valid){
@@ -50,8 +47,6 @@ export class LoginFormComponent implements OnInit {
           if (this.user===null){
             this.loginError="Usuario y/o Contraseña Incorrecto"
           } else {
-            console.log('lfcomp')
-            console.log(this.user)
             this.portfolioService.setUser(this.user)
             this.router.navigateByUrl('/dashboard')
             this.loginForm.reset()
@@ -69,8 +64,6 @@ export class LoginFormComponent implements OnInit {
     return this.loginForm.controls.pass
   }
 
-
   ngOnInit() {
-    
   }
 }

@@ -7,8 +7,8 @@ import { AuthGuard } from './permissions.guard'
 const routes: Routes = [
   {path:'', redirectTo:'/login', pathMatch:'full'},
   {path:'login', component: LoginFormComponent},
-  //{path:'dashboard', component: PortfolioComponent,canActivate:[AuthGuard]},
-  {path:'dashboard', component: PortfolioComponent}
+  {path:'dashboard', component: PortfolioComponent,canActivate:[AuthGuard]},
+  //{path:'dashboard', component: PortfolioComponent}
 ];
 
 @NgModule({
