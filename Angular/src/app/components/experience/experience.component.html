@@ -1,16 +1,20 @@
 <div class="card" style="margin-top: 10px;">
     <div class="row mt-1">
         <h1 class="col-4" style="margin-left: 3%;">Experiencia Laboral</h1> 
-        <h6 class="col-1"><button class="btn btn-warning" type="button" (click)="toggleEdit()" *ngIf="!edit"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M368.4 18.3L312.7 74.1 437.9 199.3l55.7-55.7c21.9-21.9 21.9-57.3 0-79.2L447.6 18.3c-21.9-21.9-57.3-21.9-79.2 0zM288 94.6l-9.2 2.8L134.7 140.6c-19.9 6-35.7 21.2-42.3 41L3.8 445.8c-3.8 11.3-1 23.9 7.3 32.4L164.7 324.7c-3-6.3-4.7-13.3-4.7-20.7c0-26.5 21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48c-7.4 0-14.4-1.7-20.7-4.7L33.7 500.9c8.6 8.3 21.1 11.2 32.4 7.3l264.3-88.6c19.7-6.6 35-22.4 41-42.3l43.2-144.1 2.8-9.2L288 94.6z"/></svg></button></h6>
+        <h6 class="col-1"><button class="btn btn-success " type="button" (click)="toggleEdit()" *ngIf="!edit"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg></button></h6>
     </div>
     
     <ul>
-        <li *ngFor="let experience of experienceList" style="list-style-type:none;">
+        <li *ngFor="let experience of experienceList; let indexOfelement=index" style="list-style-type:none;">
             <div class="card-body">
-                <!--<img [src]="education.img" alt="Logo School">-->
+              <div class="d-flex align-items-center">
+                <img [src]="experience.img" alt="Logo School" style="height:10%; width:10%;">
                 <h4 style="margin-left: 3%;"><strong>{{experience.company}}</strong> - {{experience.position}}</h4>
-                <p style="margin-left: 3%;">{{experience.description}}</p>
-                <p style="margin-left: 3%;">{{experience.start}} - {{experience.end}}</p>
+                <h6><button class="btn btn-warning ms-1" type="button" (click)="editExperience(indexOfelement)" *ngIf="!edit"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M368.4 18.3L312.7 74.1 437.9 199.3l55.7-55.7c21.9-21.9 21.9-57.3 0-79.2L447.6 18.3c-21.9-21.9-57.3-21.9-79.2 0zM288 94.6l-9.2 2.8L134.7 140.6c-19.9 6-35.7 21.2-42.3 41L3.8 445.8c-3.8 11.3-1 23.9 7.3 32.4L164.7 324.7c-3-6.3-4.7-13.3-4.7-20.7c0-26.5 21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48c-7.4 0-14.4-1.7-20.7-4.7L33.7 500.9c8.6 8.3 21.1 11.2 32.4 7.3l264.3-88.6c19.7-6.6 35-22.4 41-42.3l43.2-144.1 2.8-9.2L288 94.6z"/></svg></button></h6>
+                <h6><button class="btn btn-danger ms-1" type="button" (click)="deleteExperience(indexOfelement)" *ngIf="!edit"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg></button></h6>
+              </div>  
+              <p style="margin-left: 3%;">{{experience.description}}</p>
+              <p style="margin-left: 3%;">{{experience.start}} - {{experience.end}}</p>
             </div>
         </li>
     </ul>
@@ -25,7 +29,7 @@
             <input formControlName="position" type="text" class="form-control" id="position" name="position">
             <div *ngIf="position.invalid && (position.dirty || position.touched)" class="text-danger">
                 <div *ngIf="position.errors?.['required']">
-                  Ingrese una Posicion.
+                  Ingrese una Posicion
                 </div>
               </div>
         </div>
@@ -35,7 +39,7 @@
             <input formControlName="company" type="text" class="form-control" id="company" name="company">
             <div *ngIf="company.invalid && (company.dirty || company.touched)" class="text-danger">
                 <div *ngIf="company.errors?.['required']">
-                  Ingrese una Compania.
+                  Ingrese una Compania
                 </div>
               </div>
         </div>
@@ -45,12 +49,42 @@
             <input formControlName="img" type="text" class="form-control" id="img" name="img">
             <div *ngIf="img.invalid && (img.dirty || img.touched)" class="text-danger">
                 <div *ngIf="img.errors?.['required']">
-                  Ingrese una URL.
+                  Ingrese una URL
                 </div>
               </div>
         </div>
+        <!--description-->
+        <div class="mb-3">
+          <label for="description" class="form-label">Ingrese aqui la nueva descripcion</label>
+          <input formControlName="description" type="text" class="form-control" id="description" name="description">
+          <div *ngIf="description.invalid && (description.dirty || description.touched)" class="text-danger">
+              <div *ngIf="description.errors?.['required']">
+                Ingrese una descripcion
+              </div>
+            </div>
+        </div>
+        <!--start-->
+        <div class="mb-3">
+          <label for="start" class="form-label">Ingrese aqui el año de comienzo</label>
+          <input formControlName="start" type="text" class="form-control" id="start" name="start">
+          <div *ngIf="start.invalid && (start.dirty || start.touched)" class="text-danger">
+              <div *ngIf="start.errors?.['required']">
+                Ingrese un año en formato YYYY
+              </div>
+            </div>
+        </div>
+        <!--end-->
+        <div class="mb-3">
+          <label for="end" class="form-label">Ingrese aqui el año de finalizacion</label>
+          <input formControlName="end" type="text" class="form-control" id="end" name="end">
+          <div *ngIf="end.invalid && (end.dirty || end.touched)" class="text-danger">
+              <div *ngIf="end.errors?.['required']">
+                Ingrese un año en formato YYYY
+              </div>
+            </div>
+        </div>
         <h6><p class="text-danger text-center">{{experienceError}}</p></h6>
         <button type="submit" class="btn btn-success" (click)="saveExperience()">Guardar</button>
-        <button type="submit" class="btn btn-danger ms-1" (click)="toggleEdit()">Salir</button>
+        <button type="submit" class="btn btn-warning ms-1" (click)="toggleEdit()">Salir</button>
     </form>
 </div>

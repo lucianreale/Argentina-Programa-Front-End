@@ -12,6 +12,7 @@ export class ExperienceComponent {
   edit:boolean=false
   experienceList:Experience[]=[]
   experienceError:String=''
+  index:Number=0
   experienceForm= this.formbuilder.group({
     id:[0],
     userid:[0],
@@ -56,6 +57,26 @@ export class ExperienceComponent {
     //this.aboutForm.controls.about.setValue(this.miPortfolio.about)
   }
 
+  addExperience(){
+    console.log('add experience')
+  }
+
+  editExperience(i: number){
+
+    this.toggleEdit()
+    console.log("Index")
+    console.log(i)
+    console.log(this.experienceList[i])
+  }
+
+  deleteExperience(i: number){
+
+    this.toggleEdit()
+    console.log("Index")
+    console.log(i)
+    console.log(this.experienceList[i])
+  }
+  
   saveExperience(){
     console.log('save experience')
   }

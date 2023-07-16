@@ -17,8 +17,8 @@ export class LoginFormComponent implements OnInit {
   logInBtnText:String="Login"
   user:User[]=[]
   loginForm= this.formbuilder.group({
-    mail:['lucianreale@gmail.com',[Validators.required, Validators.email]],
-    pass:['lucianreale',Validators.required]
+    mail:['',[Validators.required, Validators.email]],
+    pass:['',Validators.required]
   })
 
   constructor(private formbuilder: FormBuilder, private router:Router, private portfolioService: PortfolioService) {
