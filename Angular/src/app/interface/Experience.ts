@@ -1,12 +1,12 @@
 export interface Experience {
     id:BigInt;
     userid?:BigInt;
-    position?:String;
-    company?:String;
-    img?:String;
-    description:String;
+    position?:string;
+    company?:string;
+    img?:string;
+    description:string;
     start?:string;
-    end?:String;
+    end?:string;
 }
 /*
 "id": 1,

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, catchError, throwError } from 'rxjs';
 import { LoginReq } from '../interface/LoginReq';
 import { User } from '../interface/User';
+import { Experience } from '../interface/Experience';
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +54,35 @@ export class PortfolioService {
       catchError(this.handleError)
     )
   }
+
+  // Experience
+  getExperience(id:BigInt):Observable<[]>{
+    return this.http.get<[]>(this.baseUrl+`/experience/getbyuserid/${id}`).pipe(
+      catchError(this.handleError)
+    )
+  }
+  
+  ///experience/add
+  saveExperience(data:Experience):Observable<any>{
+    return this.http.post<Experience>(this.baseUrl+'/experience/add', data).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+    ///experience/del/{id}
+    deleteExperience(data:Experience):Observable<any>{
+      return this.http.delete<Experience>(this.baseUrl+`/experience/del/${data.id}`).pipe(
+        catchError(this.handleError)
+      )
+    }
+
+    ///experience/update
+    updateExperience(data:Experience):Observable<any>{
+      return this.http.put<Experience>(this.baseUrl+'/experience/update',data).pipe(
+        catchError(this.handleError)
+      )
+    }
+
 
   private handleError(error:HttpErrorResponse){
     if(error.status===0){
